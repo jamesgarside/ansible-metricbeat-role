@@ -1,0 +1,14 @@
+{% if metricbeat_oss | default(false) %}
+[elastic-oss-{{ repo_version }}]
+name=Elastic repository for oss-{{ repo_version }} packages
+baseurl=https://artifacts.elastic.co/packages/oss-{{ repo_version }}/yum
+{% else %}
+[elastic-{{ repo_version }}]
+name=Elastic repository for {{ repo_version }} packages
+baseurl=https://artifacts.elastic.co/packages/{{ repo_version }}/yum
+{% endif %}
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md

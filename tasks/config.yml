@@ -1,0 +1,27 @@
+---
+- name: Copy Metricbeat configuration.
+  template:
+    src: metricbeat.yml.j2
+    dest: "/etc/metricbeat/metricbeat.yml"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart metricbeat
+
+- name: Ensure Metricbeat SSL key pair directory exists.
+  file:
+    path: "{{ elasticsearch_ssl_dir }}"
+    state: directory
+    mode: 0755
+  when: elasticsearch_ssl_certificate_file | default(false)
+
+- name: Copy SSL cert for metricbeat.
+  copy:
+    src: "{{ item }}"
+    dest: "{{ elasticsearch_ssl_dir }}/{{ item | basename }}"
+    mode: 0644
+  with_items:
+    - "{{ elasticsearch_ssl_certificate_file }}"
+  notify: restart metricbeat
+  when:
+    - elasticsearch_ssl_certificate_file | default(false)

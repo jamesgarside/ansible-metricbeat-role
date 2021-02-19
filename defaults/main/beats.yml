@@ -1,0 +1,30 @@
+---
+  # The variables in here are global over all beats roles
+
+  repo_version: 7.x # The major version for beats
+
+  #cloud_id: 
+  #cloud_auth: 
+
+  #kibana_host: 
+  #kibana_path: /_plugin/kibana/
+  #kibana_protocol: https
+
+  elasticsearch_hosts: http://es01:9200
+  # elasticsearch_username:
+  # elasticsearch_password: 
+  # elasticsearch_protocol: https
+
+  # elasticsearch_ssl_dir: /etc/ssl/certs
+  # elasticsearch_ssl_certificate_file:
+  # elasticsearch_ssl_verification_mode: full
+
+  # monitoring_enabled: "true"
+  # monitoring_cluster_uuid: <monitoring cluster UID>
+
+
+  # logstash_hosts: 
+  # logstash_ssl_dir:
+  # logstash_ssl_certificate_file:
+  # logstash_ssl_insecure:
+
