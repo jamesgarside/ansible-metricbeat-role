@@ -6,13 +6,13 @@
       - gnupg2
     state: present
 
-- name: Add Elasticsearch apt key.
+- name: Add Elastic apt key.
   apt_key:
     url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     id: 46095ACC8548582C1A2699A9D27D666CD88E42B4
     state: present
 
-- name: Add Metricbeat repository.
+- name: Add Elastic repository.
   apt_repository:
     repo: 'deb https://artifacts.elastic.co/packages/{{ repo_version }}/apt stable main'
     state: present
